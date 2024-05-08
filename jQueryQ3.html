@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .main-section {
+            display: flex;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            text-align: center;
+
+        }
+
+        img {
+            width: 80%;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main-section">
+        <div class="slide"><img
+                src="https://www.hindustantimes.com/ht-img/img/2023/09/14/1600x900/Roman_Reigns_1681462779986_1694705691191.jpg"
+                alt="Slide 1"></div>
+        <div class="slide"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM5r5_RqF73Zpr29Q_gB4CyC6TEJw5-2nBdsp0LGOYpA&s"
+                alt="Slide 2"></div>
+        <div class="slide"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9860HGMRbfymkx4owYqQOHeBDTVC1IKt5s0czcGz5Pw&s"
+                alt="Slide 3"></div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let currentIndex = 0;
+            let mainSection = $('.slide');
+            let slideCount = mainSection.length;
+
+            function nextSlide() {
+                mainSection.eq(currentIndex).fadeOut(500);
+                currentIndex = (currentIndex + 1) % slideCount;
+                mainSection.eq(currentIndex).fadeIn(500);
+            }
+
+            let slideInterval = setInterval(nextSlide, 3000);
+        });
+
+    </script>
+
+</body>
+
+</html>
